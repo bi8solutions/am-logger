@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "../../out-tsc/lib-es5/",
+    "baseUrl": "",
+    "types": [],
+      "experimentalDecorators": true
+  },
+  "files": [
+    "./index.ts",
+    "./typings.d.ts"
+  ],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "am-logger.js",
+    "flatModuleId": "am-logger",
+    "genDir": "../../out-tsc/lib-gen-dir/"
+  }
+}
