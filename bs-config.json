@@ -4,7 +4,7 @@
       "http2": true,
     "routes": {
       "/node_modules": "node_modules",
-      "/am-logger": "src/lib"
+      "/@bi8/am-logger": "src/lib"
     }
   }
 }

@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "outDir": "../../out-tsc/lib-es5/",
+    "outDir": "../../out-tsc/lib-es5/@bi8",
     "baseUrl": "",
     "types": [],
       "experimentalDecorators": true

@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {LogConfig, LogLevel, LogModule} from 'am-logger';
+import {LogConfig, LogLevel, LogModule} from '@bi8/am-logger';
 
 import { AppComponent }  from './app.component';
 

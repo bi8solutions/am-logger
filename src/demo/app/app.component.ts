@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Logger, LogService} from 'am-logger';
+import { Logger, LogService} from '@bi8/am-logger';
 import * as moment from 'moment'
 
 @Component({
