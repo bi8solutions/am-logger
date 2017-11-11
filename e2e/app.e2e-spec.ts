@@ -1,14 +1,14 @@
-import { AmLoggerPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('am-logger App', () => {
-  let page: AmLoggerPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new AmLoggerPage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
