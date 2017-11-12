@@ -1,6 +1,6 @@
 {
   "name": "@bi8/am-logger",
-  "version": "0.0.4",
+  "version": "5.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
