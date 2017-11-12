@@ -1,6 +1,6 @@
 {
-  "name": "am-logger",
-  "version": "0.0.0",
+  "name": "@bi8/am-logger",
+  "version": "0.0.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -47,5 +47,10 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
-  }
+  },
+  "keywords": [
+    "Angular",
+    "Material",
+    "Logger"
+  ]
 }
