@@ -1,12 +1,11 @@
 # Angular Material Logger
 
-AmLogger is a simple log framework that originated as a proof of concept. The idea is to expand this 
-library to make use of websockets for logging to the server (or to any other listener).  It also aims 
-to give more information for a log entry (for example the timestamp) and it's location.
+AmLogger is a simple log framework that originated as a *Proof of Concept*. 
+At the moment, the log statements is simply written to the console with the current timestamp.  The ides
+is to expand this contexual information to include where in the code the log entry was generated.
 
-Please note that this is a Proof of Concept library and that the API can change at any time.  Hopefully
-as the features mature, I will move this out of a POC context and add some proper documentation and unit 
-tests.  
+Please note that this is a *Proof of Concept* library and not meant for production use and that the API can 
+change at any time.
 
 Version 5.0 is a update to the way the library gets build as well as depending on Angular5.
 
