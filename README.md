@@ -1,27 +1,63 @@
-# AmLogger
+# Angular Material Logger
+
+AmLogger is a simple log framework that originated as a proof of concept. The idea is to expand this 
+library to make use of websockets for logging to the server (or to any other listener).  It also aims 
+to give more information for a log entry (for example the timestamp) and it's location.
+
+Please note that this is a Proof of Concept library and that the API can change at any time.  Hopefully
+as the features mature, I will move this out of a POC context and add some proper documentation and unit 
+tests.  
+
+Version 5.0 is a update to the way the library gets build as well as depending on Angular5.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To install AmLogger in your project, simply do
 
-## Code scaffolding
+```
+npm i @bi8/am-logger
+```  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuration
+
+Import the AmLoggerModule and add it to your app module and create a log configuration ```logConfig``` that is
+added to your list of providers.
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+import { AmLoggerModule } from "./modules/am-logger/am-logger.module";
+import { LogLevel } from "./modules/am-logger/log-level.enum";
+import { LogConfig } from "./modules/am-logger/log-config";
+
+const logConfig : LogConfig = {
+  level: LogLevel.debug
+};
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AmLoggerModule
+  ],
+  providers: [{
+    provide: 'LogConfig',
+    useValue: logConfig
+  }],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+``` 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `npm i` to install all the dependencies. To create the bundle/distribution, run `npm run packagr`
+which will do a new release under the dist folder 
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
