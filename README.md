@@ -59,5 +59,12 @@ export class AppModule { }
 ## Build
 
 Run `npm i` to install all the dependencies. To create the bundle/distribution, run `npm run packagr`
-which will do a new release under the dist folder 
+which will do a new release under the dist folder. 
+
+## Project Layout
+This is basically a CLI generated application with the addition of [ng-packagr](https://www.npmjs.com/package/ng-packagr) to create the distribution 
+bundle.  The app component imports the AmLoggerModule that is located under the modules directory.  Only the module is packaged
+an not the whole example project.  
+
+Please see Nikolas LeBlanc's article: [Building an Angular 4 Component Library with the Angular CLI and ng-packagr](https://medium.com/@ngl817/building-an-angular-4-component-library-with-the-angular-cli-and-ng-packagr-53b2ade0701e) 
 
