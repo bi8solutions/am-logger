@@ -1,6 +1,8 @@
 import {LogService} from "./log.service";
 
 export class Logger {
+  //public log = console.log.bind(window.console);
+
   constructor(private service: LogService, private name: string) {
   }
 
@@ -23,4 +25,15 @@ export class Logger {
   error(message: string, payload?: any){
     this.service.error(message, payload, this.name);
   }
+
+  /*public get sLog (): Function {
+    const log = console.log.bind(window.console);
+    let stackFrame = st.getSync()[1];
+    console.log(stackFrame);
+    return log;
+
+    // Implemnt server-side logging
+
+    //return clientSideLogging ? log : () => {};
+  }*/
 }

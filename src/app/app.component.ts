@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.logger.info("Hello World");
+    this.logger.debug("Hello World");
+    //this.logger.testLog("Hello World");
+    //this.logger.doTheLog("Hello World");
+    //this.logger.sLog("Hello World");
+
   }
 }

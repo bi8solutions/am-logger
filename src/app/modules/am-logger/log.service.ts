@@ -65,52 +65,32 @@ export class LogService {
   }
 
   trace(message: string, payload?: any, logger?: string) {
-    this.messageSource$.next({
-      level: LogLevel.trace,
-      message: message,
-      payload: payload,
-      date: new Date(),
-      logger: logger,
-      location: ''
-    });
+    this.emit(LogLevel.trace, message, null, payload, logger);
   }
 
   debug(message: string, payload?: any, logger?: string) {
-    this.messageSource$.next({
-      level: LogLevel.debug,
-      message: message,
-      payload: payload,
-      logger: logger,
-      date: new Date(),
-      location: ''  }
-    );
+    this.emit(LogLevel.debug, message, null, payload, logger);
   }
 
   info(message: string, payload?: any, logger?: string) {
-    this.messageSource$.next({
-      level: LogLevel.info,
-      message: message,
-      payload: payload,
-      logger: logger,
-      date: new Date(),
-      location: ''  }
-    );
+    this.emit(LogLevel.info, message, null, payload, logger);
   }
 
   warn(message: string, payload?: any, logger?: string) {
-    this.messageSource$.next({
-      level: LogLevel.warn,
-      message: message,
-      payload: payload,
-      logger: logger,
-      date: new Date(),
-      location: ''  }
-    );
+    this.emit(LogLevel.warn, message, null, payload, logger)
   }
 
   error(message: string, payload?: any, logger?: string) {
+    this.emit(LogLevel.error, message, null, payload, logger);
+  }
+
+  emit(level: LogLevel, message, frame: any, payload?, logger?){
     this.messageSource$.next({
-      level: LogLevel.error,
+      fileName: '',
+      functionName: '',
+      lineNumber: 0,
+      columnNumber: 0,
+      level: level,
       message: message,
       payload: payload,
       logger: logger,

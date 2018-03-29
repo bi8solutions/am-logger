@@ -1,5 +1,9 @@
 import {LogLevel} from "./log-level.enum";
 export class LogMessage {
+  fileName: string;
+  functionName: string;
+  lineNumber: number;
+  columnNumber: number;
   date: any;
   logger: string;
   location: string;
@@ -8,6 +12,10 @@ export class LogMessage {
   payload: any;
 
   constructor(options: {
+    fileName?: string;
+    functionName?: string;
+    lineNumber?: number;
+    columnNumber?: number;
     level?: LogLevel,
     message?: string,
     payload?: any,
@@ -15,6 +23,10 @@ export class LogMessage {
     logger?: string,
     location?: string
   } = {}) {
+    this.fileName = options.fileName || null;
+    this.functionName = options.functionName || null;
+    this.lineNumber = options.lineNumber || null;
+    this.columnNumber = options.columnNumber || null;
     this.level = options.level || null;
     this.message = options.message || '';
     this.payload = options.payload || null;
