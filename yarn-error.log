@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js package
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js publish-local
 
 PATH: 
   /Users/manie/google-cloud-sdk/bin:/Users/manie/.sdkman/candidates/springboot/current/bin:/Users/manie/.sdkman/candidates/gradle/current/bin:/Users/manie/.npm-global/bin:/Users/manie/jstuff/apache-maven-3.5.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/sbin
@@ -16,41 +16,36 @@ Platform:
 npm manifest: 
   {
     "name": "@bi8/am-logger",
-    "version": "5.2.0",
+    "version": "5.2.1",
     "license": "MIT",
     "scripts": {
       "ng": "ng",
       "start": "ng serve",
-      "build": "ng build --prod",
+      "build": "ng build",
+      "build:prod": "ng build --prod",
       "test": "ng test",
       "lint": "ng lint",
       "e2e": "ng e2e",
-      "package": "ng-packagr -p package.json",
-      "publish-local": "npm run package && cd dist && yalc publish",
-      "serve": "ng serve --ssl --port 8000"
+      "package": "ng-packagr",
+      "publish:local": "yarn run package && cd dist && yalc publish",
+      "publish:remote": "",
+      "run:serve": "ng serve --ssl --port 8000"
     },
     "private": false,
     "repository": {
       "type": "git",
       "url": "https://github.com/bi8solutions/am-logger.git"
     },
-    "peerDependencies": {
-      "@angular/compiler": "^5.0.0 || ^6.0.0-rc.0",
-      "@angular/compiler-cli": "^5.0.0 || ^6.0.0-rc.0"
-    },
+    "peerDependencies": {},
     "dependencies": {
-      "@angular/animations": "^5.2.9",
       "@angular/common": "^5.2.0",
       "@angular/compiler": "^5.2.0",
       "@angular/core": "^5.2.0",
-      "@angular/forms": "^5.2.0",
-      "@angular/http": "^5.2.0",
       "@angular/platform-browser": "^5.2.0",
       "@angular/platform-browser-dynamic": "^5.2.0",
       "@angular/router": "^5.2.0",
       "core-js": "^2.4.1",
       "rxjs": "^5.5.6",
-      "stacktrace-js": "2.0.0",
       "zone.js": "^0.8.19"
     },
     "devDependencies": {
@@ -73,20 +68,6 @@ npm manifest:
       "ts-node": "~4.1.0",
       "tslint": "~5.9.1",
       "typescript": "~2.5.3"
-    },
-    "ngPackage": {
-      "whitelistedNonPeerDependencies": ["angular"],
-      "lib": {
-        "entryFile": "public_api.ts",
-        "umdModuleIds": {
-          "stacktrace-js": "StackTrace"
-        },
-        "externals": {
-          "StackTrace": "stacktrace-js",
-          "rxjs": "rxjs",
-          "lodash": "lodash"
-        }
-      }
     },
     "keywords": [
       "Angular",
@@ -131,7 +112,7 @@ Lockfile:
       "@ngtools/json-schema" "^1.1.0"
       rxjs "^5.5.6"
   
-  "@angular/animations@^5.2.9":
+  "@angular/animations@^5.2.0":
     version "5.2.9"
     resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.9.tgz#220db9fb5a52a193db0023d721b23ddd25a75770"
     dependencies:
@@ -2232,12 +2213,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/error-ex/-/error-ex-1.3.1.tgz#f855a86ce61adc4e8621c3cda21e7a7612c3a8dc"
     dependencies:
       is-arrayish "^0.2.1"
-  
-  error-stack-parser@^2.0.1:
-    version "2.0.1"
-    resolved "https://registry.yarnpkg.com/error-stack-parser/-/error-stack-parser-2.0.1.tgz#a3202b8fb03114aa9b40a0e3669e48b2b65a010a"
-    dependencies:
-      stackframe "^1.0.3"
   
   es-abstract@^1.7.0:
     version "1.11.0"
@@ -6481,10 +6456,6 @@ Lockfile:
     dependencies:
       amdefine ">=0.0.4"
   
-  source-map@0.5.6:
-    version "0.5.6"
-    resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
-  
   source-map@0.5.x, source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.1, source-map@~0.5.3:
     version "0.5.7"
     resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
@@ -6581,31 +6552,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ssri/-/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
     dependencies:
       safe-buffer "^5.1.1"
-  
-  stack-generator@^2.0.1:
-    version "2.0.2"
-    resolved "https://registry.yarnpkg.com/stack-generator/-/stack-generator-2.0.2.tgz#3c13d952a596ab9318fec0669d0a1df8b87176c7"
-    dependencies:
-      stackframe "^1.0.4"
-  
-  stackframe@^1.0.3, stackframe@^1.0.4:
-    version "1.0.4"
-    resolved "https://registry.yarnpkg.com/stackframe/-/stackframe-1.0.4.tgz#357b24a992f9427cba6b545d96a14ed2cbca187b"
-  
-  stacktrace-gps@^3.0.1:
-    version "3.0.2"
-    resolved "https://registry.yarnpkg.com/stacktrace-gps/-/stacktrace-gps-3.0.2.tgz#33f8baa4467323ab2bd1816efa279942ba431ccc"
-    dependencies:
-      source-map "0.5.6"
-      stackframe "^1.0.4"
-  
-  stacktrace-js@2.0.0:
-    version "2.0.0"
-    resolved "https://registry.yarnpkg.com/stacktrace-js/-/stacktrace-js-2.0.0.tgz#776ca646a95bc6c6b2b90776536a7fc72c6ddb58"
-    dependencies:
-      error-stack-parser "^2.0.1"
-      stack-generator "^2.0.1"
-      stacktrace-gps "^3.0.1"
   
   static-extend@^0.1.1:
     version "0.1.2"
@@ -7744,17 +7690,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 111
-  Command: sh
-  Arguments: -c ng-packagr -p package.json
-  Directory: /Users/manie/dev/bi8/am-logger
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
-      at emitTwo (events.js:125:13)
-      at ChildProcess.emit (events.js:213:7)
-      at maybeClose (internal/child_process.js:897:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:208:5)
+  Error: Command "publish-local" not found. Did you mean "publish:local"?
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:116:14
+      at Promise (<anonymous>)
+      at F (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:23451:28)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:95:12
+      at runCommand (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87312:22)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87412:14)
