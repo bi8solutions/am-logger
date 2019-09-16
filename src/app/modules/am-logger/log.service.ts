@@ -4,8 +4,7 @@ import {LogConfig} from './log-config';
 import {LogEvent} from './log-event.enum';
 import {LogMessage} from './log-message';
 import {Logger} from './log-logger';
-import {Subject} from "rxjs/Subject";
-import {Observable} from "rxjs/Observable";
+import {Subject, Observable} from 'rxjs';
 
 @Injectable()
 export class LogService {
@@ -26,23 +25,23 @@ export class LogService {
       switch (message.level) {
         case LogLevel.debug:
           message.payload ? console.debug(`${dateTime} - ${message.logger} : ${message.message}`, message.payload)
-                          : console.debug(`${dateTime} - ${message.logger} : ${message.message}`);
+            : console.debug(`${dateTime} - ${message.logger} : ${message.message}`);
           break;
         case LogLevel.info:
           message.payload ? console.info(`${dateTime} - ${message.logger} : ${message.message}`, message.payload)
-                          : console.info(`${dateTime} - ${message.logger} : ${message.message}`);
+            : console.info(`${dateTime} - ${message.logger} : ${message.message}`);
           break;
         case LogLevel.warn:
           message.payload ? console.warn(`${dateTime} - ${message.logger} : ${message.message}`, message.payload)
-                          : console.warn(`${dateTime} - ${message.logger} : ${message.message}`);
+            : console.warn(`${dateTime} - ${message.logger} : ${message.message}`);
           break;
         case LogLevel.error:
           message.payload ? console.error(`${dateTime} - ${message.logger} : ${message.message}`, message.payload)
-                          : console.error(`${dateTime} - ${message.logger} : ${message.message}`);
+            : console.error(`${dateTime} - ${message.logger} : ${message.message}`);
           break;
         case LogLevel.trace:
           message.payload ? console.trace(`${dateTime} - ${message.logger} : ${message.message}`, message.payload)
-                          : console.trace(`${dateTime} - ${message.logger} : ${message.message}`);
+            : console.trace(`${dateTime} - ${message.logger} : ${message.message}`);
           break;
       }
     });
@@ -52,7 +51,7 @@ export class LogService {
     return new Logger(this, name);
   }
 
-  getConfig() : LogConfig {
+  getConfig(): LogConfig {
     return this.config;
   }
 
@@ -84,18 +83,19 @@ export class LogService {
     this.emit(LogLevel.error, message, null, payload, logger);
   }
 
-  emit(level: LogLevel, message, frame: any, payload?, logger?){
+  emit(level: LogLevel, message, frame: any, payload?, logger?) {
     this.messageSource$.next({
-      fileName: '',
-      functionName: '',
-      lineNumber: 0,
-      columnNumber: 0,
-      level: level,
-      message: message,
-      payload: payload,
-      logger: logger,
-      date: new Date(),
-      location: ''  }
+        fileName: '',
+        functionName: '',
+        lineNumber: 0,
+        columnNumber: 0,
+        level: level,
+        message: message,
+        payload: payload,
+        logger: logger,
+        date: new Date(),
+        location: ''
+      }
     );
   }
 }
